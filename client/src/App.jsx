@@ -20,6 +20,7 @@ import Quality from './pages/Quality';
 import Accounting from './pages/Accounting';
 import Reports from './pages/Reports';
 import AgentPage from './pages/Agent';
+import Landing from './pages/Landing';
 import CrmDashboard from './pages/crm/CrmDashboard';
 import Leads from './pages/crm/Leads';
 import Deals from './pages/crm/Deals';
@@ -312,6 +313,8 @@ const AppRoutes = () => {
   }, [activeSuite, isSuiteAuthorized, openPasswordModal, passwordModalSuite]);
 
   useEffect(() => {
+    // preserve the landing page when user is at root
+    if (location.pathname === '/') return;
     const targetPath = `/${activeSuite}`;
     if (!location.pathname.startsWith(targetPath)) {
       navigate(targetPath, { replace: true });
@@ -376,7 +379,7 @@ const AppRoutes = () => {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Navigate to={`/${activeSuite}`} replace />} />
+        <Route path="/" element={<Landing />} />
 
         <Route
           path="/erp"
