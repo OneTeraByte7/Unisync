@@ -1,4 +1,4 @@
-# 🚀 unisync · HR · CRM Suite
+# 🚀 Unisync Suite
 ---
 ![alt text](client/public/1.png)
 ![alt text](client/public/2.png)
