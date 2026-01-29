@@ -1,181 +1,181 @@
-# 🚀 ERP · HR · CRM Suite
-
+# 🚀 unisync · HR · CRM Suite
+---
+![alt text](client/public/1.png)
+![alt text](client/public/2.png)
+---
 ![Release](https://img.shields.io/github/v/release/OneTeraByte7/ERP-HR-CRM-Suite)
 ![License](https://img.shields.io/github/license/OneTeraByte7/ERP-HR-CRM-Suite)
 ![Issues](https://img.shields.io/github/issues/OneTeraByte7/ERP-HR-CRM-Suite)
 ![Last Commit](https://img.shields.io/github/last-commit/OneTeraByte7/ERP-HR-CRM-Suite)
 ![Top Language](https://img.shields.io/github/languages/top/OneTeraByte7/ERP-HR-CRM-Suite)
 
-An integrated ERP suite with HR and CRM modules — built with a Vite + React frontend and a Node.js/Express backend. Includes ready-made pages for accounting, inventory, HR, CRM, suppliers and dashboards.
+A **modular unisync suite** with integrated **HR and CRM** functionality.  
+Built using **React + Vite** on the frontend and **Node.js + Express** on the backend, with **Supabase-ready PostgreSQL schemas** for fast database provisioning.
 
-✨ Highlights
-- Modular frontend in `client/` (Vite + React)
-- Express-based API server in `server/`
-- Supabase schema SQL files in `server/supabase/` for quick DB setup
-- Component-driven UI with prebuilt pages and routes
+Designed for learning, rapid prototyping, and extending into production-grade systems.
 
-Table of Contents
-- **Get Started**
-- **Project Structure**
-- **Local Development**
-- **Database / Supabase**
-- **API Reference & Routes**
-- **Contributing**
-- **License**
+---
 
-**Get Started**
+## 📌 Overview
 
-Prerequisites
-- Node.js (16+ recommended)
+This repository provides a compact yet extensible unisync system covering core enterprise needs such as:
+
+- Human Resources  
+- Customer Relationship Management  
+- Inventory and Suppliers  
+- Accounting and Quality checks  
+
+The architecture focuses on:
+
+- Clear separation of concerns  
+- Component-driven UI  
+- Simple, extensible backend APIs  
+
+---
+
+## ✨ Features
+
+### 📊 Dashboard
+- Cross-module summary cards
+- Charts and KPIs scaffolded for extension
+
+### 🤝 CRM
+- Leads, contacts, deals, organizations
+- Notes and activity tracking
+- CRUD-ready API routes
+
+### 🧑‍💼 HR
+- Employee directory
+- Attendance and payroll (scaffolded)
+- Performance and role management pages
+
+### 📦 Inventory
+- Stock catalog
+- Quantity adjustments
+- Optional transaction history
+
+### 🏭 Suppliers & Buyers
+- Supplier and buyer CRUD
+- Search and contact detail views
+
+### 💰 Accounting
+- Basic receivables and payables
+- Reporting skeleton for future expansion
+
+### ✅ Quality
+- Inspection records
+- Status and scoring system
+
+---
+
+## 🛠 Tech Stack
+
+### Frontend
+- React (Vite)
+- Tailwind CSS
+- Recharts
+- lucide-react
+
+### Backend
+- Node.js
+ - Express
+- Express.js
+
+### Database
+- Supabase (PostgreSQL)
+- SQL schema files included
+
+### Dev Tooling
+- Vite dev server
+- npm scripts
+
+---
+
+## ⚡ Quick Start
+
+### Prerequisites
+- Node.js 16+
 - npm or yarn
 - Git
+- Supabase account (optional but recommended)
 
-Clone the repo
+---
+
+### 📥 Clone the Repository
 
 ```bash
 git clone https://github.com/OneTeraByte7/ERP-HR-CRM-Suite.git
 cd ERP-HR-CRM-Suite
 ```
 
-Install dependencies and run the frontend
-
+### ▶️ Run Frontend
 ```bash
 cd client
 npm install
 npm run dev
-# open http://localhost:5173 (default Vite port)
+
+
+Open the URL shown by Vite
+(default: http://localhost:5173)
 ```
 
-Install dependencies and run the backend
-
+### ▶️ Run Backend
 ```bash
 cd server
 npm install
-# start server (if package.json has scripts, prefer `npm run dev` or `npm start`)
-node server.js
-# default: http://localhost:3000
-```
-
-Environment variables
-- Create a `.env` in `server/` (and in `client/` if needed) with keys used by the app. Typical variables:
-
-- `SUPABASE_URL` — your Supabase project URL
-- `SUPABASE_KEY` — service role or anon key (use appropriate key for server vs client)
-- `PORT` — server port (default 3000)
-
-See `server/utils/supabaseClient.js` for exactly which env vars are consumed.
-
-Project Structure (high level)
-- `client/` — Frontend app (Vite + React)
-  - `src/` — app source
-  - `src/components/` — UI components such as `Header.jsx`, `Sidebar.jsx`, `AgentPanel.jsx`
-  - `src/pages/` — feature pages (`Dashboard.jsx`, `Inventory.jsx`, `SupplierList.jsx`, `hr/`, `crm/`)
-- `server/` — Backend API
-  - `routes/` — Express routes (`accounting.js`, `crm.js`, `hr.js`, `supplier.js`, ...)
-  - `controllers/` — Controller logic
-  - `supabase/` — SQL schema files: [crm_schema.sql](server/supabase/crm_schema.sql), [hr_schema.sql](server/supabase/hr_schema.sql)
-  - `utils/` — helpers like `supabaseClient.js` and `controllerUtils.js`
-
-Key files
-- Frontend entry: [client/src/main.jsx](client/src/main.jsx)
-- App shell: [client/src/App.jsx](client/src/App.jsx)
-- Server entry: [server/server.js](server/server.js)
-- Supabase schemas: [server/supabase/](server/supabase/)
-
-Database / Supabase
-- Use the SQL files under [server/supabase/](server/supabase/) to provision tables and initial schema in your Supabase project.
-- Import the `.sql` files via the Supabase SQL editor or using the CLI.
-
-API Reference & Routes
-- The `server/routes/` folder declares the HTTP endpoints. Open the files to see available endpoints and expected payloads.
-
-Deployment
-- Frontend: Build with `npm run build` from `client/` and deploy the `dist/` output to any static host (Netlify, Vercel, Cloudflare Pages, S3).
-- Backend: Deploy `server/` to any Node host (Heroku, Render, DigitalOcean App Platform) and set env vars.
-
-Development tips
-- Use separate Supabase projects for development and production.
-- Keep server secrets out of the frontend. Use a server-side proxy for privileged Supabase operations.
-- Run frontend and backend concurrently (or use `concurrently` / `npm-workspaces` if desired).
-
-# ERP Operations Center (React + Vite)
-
-This client powers the ERP Operations Center UI. It’s a React 19 + Vite application styled with Tailwind, featuring:
-
-- **Dashboard** with live summaries for suppliers, buyers, inventory, quality and accounting.
-- **Suppliers & Buyers** management with CRUD forms and search filters.
-- **Inventory** tracking, buy/sell adjustments, analytics and transaction history (with graceful fallbacks when history logging is not enabled).
-- **Quality** control module for inspections with status tracking and scoring.
-- **Accounting** workspace for receivable/payable entries, cashflow snapshots and payment tracking.
-- **Reports** page with Recharts-based visualisations.
-
-## Getting started
-
-```powershell
-# install dependencies
-npm install
-
-# start the development server
 npm run dev
 
-# run lint checks
-npm run lint
+
+Default backend URL:
+http://localhost:3000
 ```
 
-> ℹ️ Vite automatically picks a free port if `3000` is already in use. Check the terminal output to see the active URL.
+### 🔐 Environment Variables
+```bash
+Create a .env file inside server/:
 
-## Required Supabase tables
+SUPABASE_URL=your_supabase_project_url
+SUPABASE_KEY=your_supabase_key
+PORT=3000
 
-Backend APIs expect the following tables (all lower-case) in Supabase. Each table should include `id uuid DEFAULT gen_random_uuid() PRIMARY KEY`, timestamp columns (`created_at` default `now()` and optional `updated_at`) and the listed fields:
 
-| Table | Purpose | Key fields |
-|-------|---------|------------|
-| `supplier` | Supplier directory | `supplier_name`, `contact_name`, `email`, `phone`, address fields |
-| `buyer` | Buyer / customer records | `buyer_name`, `company_name`, `contact_name`, contact info, `credit_limit`, `payment_terms`, `notes` |
-| `inventory` | Stock catalogue | `item_name`, `sku`, `quantity`, `unit_cost`, `reorder_level`, `location`, `description` |
-| `inventory_transactions` *(optional but recommended)* | History for buy/sell adjustments | `inventory_id` (FK), `type` (`BUY`/`SELL`), quantity and cost snapshots, `note` |
-| `quality_checks` | Quality inspections | `title`, `status`, `owner`, `location`, `score`, `score_max`, `due_date`, `completed_at`, `notes` |
-| `accounting_entries` | Receivables & payables | `entry_type` (`RECEIVABLE`/`PAYABLE`), `entity_name`, `reference`, `amount`, `currency`, `status`, `due_date`, `paid_at`, `notes` |
+See server/utils/supabaseClient.js for exact usage.
+```
 
-If a table is missing, the backend responds gracefully with helpful messages so the UI remains usable while you finish the setup.
+### Available Schemas
 
-### CRM suite additions
+crm_schema.sql — CRM tables and policies
+hr_schema.sql — HR-related tables
 
-The CRM module introduces five new tables. Run `server/supabase/crm_schema.sql` in the Supabase SQL editor (or wire it into your migrations) to provision them with sensible defaults, indexes, row-level security, and timestamp triggers:
+### Setup Steps
 
-| Table | Purpose | Key fields |
-|-------|---------|------------|
-| `crm_leads` | Prospect pipeline | `name`, `company`, contact fields, `status`, `source`, `owner`, `value`, `notes` |
-| `crm_deals` | Sales opportunities | `title`, `stage`, `value`, `probability`, `close_date`, `lead_id`, `organization_id`, `owner`, `notes` |
-| `crm_contacts` | People at organizations | `full_name`, `email`, `phone`, `role`, `organization_id`, `owner`, `notes` |
-| `crm_organizations` | Accounts / companies | `name`, `industry`, `size`, `website`, `phone`, `status`, `owner`, `notes` |
-| `crm_notes` | Activity timeline | `subject`, `note`, `owner`, `related_type`, `related_id` |
+Create a new Supabase project
+Open the SQL editor
+Paste and run each schema file
+Verify tables are created successfully
 
-> ✅ The script enables RLS with permissive policies for the `authenticated` role—tighten them to match your production rules.
+### Notes
 
-## Tech stack highlights
+UUIDs are generated using gen_random_uuid()
+Timestamps default to now()
+RLS policies are included for CRM (review before production use)
 
-- React 19 with the React Compiler enabled.
-- Vite (rolldown flavour) for the dev server and bundling.
-- Axios for API calls, lucide-react for icons, Recharts for data visualisations.
-- Tailwind utility classes for layout and theming.
+### 📁 Project Structure
+```bash
+ERP-HR-CRM-Suite/
+│
+├── client/                  # React + Vite frontend
+│   ├── src/
+│   │   ├── components/      # Shared UI components
+│   │   ├── pages/           # Feature-based pages
+│   │   └── routes/
+│
+├── server/                  # Express backend
+│   ├── controllers/         # Request handlers
+│   ├── routes/              # API routes
+│   ├── utils/               # Helpers (Supabase client, etc.)
+│   └── supabase/            # SQL schemas
+│
+└── README.md
 
-Happy shipping! ✨
-
-Contributing
-- Fork the repo and open a PR against `main`.
-- Keep changes focused and add short, descriptive commits.
-- Follow existing code style (JSX/React conventions) and lint rules if present.
-
-Support / Issues
-- Open an issue on the repository for bugs, feature requests, or help.
-
-License
-- Check the `LICENSE` file in the repo. If none exists, add one (MIT recommended for open source).
-
-Thanks for using this project! ❤️
-
-If you'd like, I can also:
-- Add a `Dockerfile` + `docker-compose.yml` for local dev
-- Add GitHub Actions CI for linting/testing
-- Generate a more detailed API doc from the `server/routes/` files
+```

@@ -4,7 +4,7 @@ import { Package, Building2, Users } from 'lucide-react';
 
 const SUITE_LABELS = {
   erp: {
-    title: 'SupplyChain ERP',
+    title: 'unisync',
     subtitle: 'Operations Center',
     icon: Package,
   },
@@ -21,7 +21,7 @@ const SUITE_LABELS = {
 };
 
 const suiteOptions = [
-  { value: 'erp', label: 'ERP Suite' },
+  { value: 'erp', label: 'unisync' },
   { value: 'crm', label: 'CRM Suite' },
   { value: 'hr', label: 'HR Suite' },
 ];

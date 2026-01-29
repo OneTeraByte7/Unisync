@@ -1,8 +1,8 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Lock } from 'lucide-react';
 
 const SUITE_NAMES = {
-  erp: 'ERP suite',
+  erp: 'unisync suite',
   crm: 'CRM suite',
   hr: 'HR suite',
 };
@@ -10,6 +10,24 @@ const SUITE_NAMES = {
 const SuitePasswordModal = ({ suite, value, onChange, onSubmit, onCancel, error }) => {
   const inputRef = useRef(null);
   const visible = Boolean(suite);
+  const [copied, setCopied] = useState(false);
+
+  const DEMO_PASSWORDS = {
+    erp: 'erp123',
+    crm: 'crm123',
+    hr: 'hr123',
+  };
+  const demoPassword = DEMO_PASSWORDS[suite] || '';
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(demoPassword);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      // ignore copy errors
+    }
+  };
 
   useEffect(() => {
     if (visible) {
@@ -53,6 +71,18 @@ const SuitePasswordModal = ({ suite, value, onChange, onSubmit, onCancel, error 
               className="w-full rounded-lg border border-gray-700 bg-gray-950/70 px-3 py-2 text-sm text-gray-100 focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/40"
             />
             {error ? <p className="text-sm text-red-400">{error}</p> : null}
+            {demoPassword ? (
+              <div className="mt-2 flex items-center justify-between">
+                <p className="text-xs text-gray-400">Demo password: <span className="font-mono text-sm text-gray-100 ml-1">{demoPassword}</span></p>
+                <button
+                  type="button"
+                  onClick={handleCopy}
+                  className="ml-3 rounded px-2 py-1 text-xs font-medium text-gray-200 bg-gray-800/60 hover:bg-gray-800/80"
+                >
+                  {copied ? 'Copied!' : 'Copy'}
+                </button>
+              </div>
+            ) : null}
           </div>
 
           <div className="flex justify-end space-x-3">

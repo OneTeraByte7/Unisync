@@ -34,9 +34,9 @@ import {
 
 const SUITE_META = {
   erp: {
-    title: 'ERP Suite',
+    title: 'unisync',
     subtitle: 'Operations Center',
-    badge: 'ERP Suite',
+    badge: 'unisync',
   },
   crm: {
     title: 'CRM Suite',

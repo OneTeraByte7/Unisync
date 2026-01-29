@@ -138,8 +138,8 @@ const getSuiteFromPath = (pathname) => {
 
 const LOCKED_SUITE_COPY = {
   erp: {
-    title: 'ERP Suite',
-    description: 'Enter the ERP password to access supply-chain operations and analytics.',
+    title: 'unisync Suite',
+    description: 'Enter the unisync password to access supply-chain operations and analytics.',
   },
   crm: {
     title: 'CRM Suite',
